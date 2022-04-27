@@ -1,7 +1,6 @@
 package by.lifetech.test.glide
 
 import android.content.Context
-import by.lifetech.test.okhttp.UnsafeOkHttpClient
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Registry
 import com.bumptech.glide.annotation.GlideModule
@@ -23,10 +22,9 @@ class TestGlideModule : AppGlideModule() {
         val callerBuilder = OkHttpClient.Builder()
         val okHttpClient = callerBuilder.build()
 
-        val client = UnsafeOkHttpClient.getUnsafeOkHttpClient(okHttpClient)
         registry.replace(
             GlideUrl::class.java, InputStream::class.java,
-            OkHttpUrlLoader.Factory(client)
+            OkHttpUrlLoader.Factory(okHttpClient)
         )
     }
 }
