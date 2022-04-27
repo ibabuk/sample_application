@@ -9,7 +9,7 @@ import com.squareup.moshi.JsonClass
  * Telegram: @iBabuk
  */
 @JsonClass(generateAdapter = true)
-class EntityModel(
+class ProductModel(
     @Json(name = "product_id") val id: String,
     @Json(name = "name") val name: String,
     @Json(name = "price") val price: Int,

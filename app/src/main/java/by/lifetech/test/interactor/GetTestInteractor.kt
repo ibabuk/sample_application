@@ -1,11 +1,10 @@
 package by.lifetech.test.interactor
 
-import by.lifetech.test.controller.model.SimpleModel
 import by.lifetech.test.entity.SimpleEntity
 import by.lifetech.test.repository.AssetsRepository
-import by.lifetech.test.repository.model.EntityModel
+import by.lifetech.test.repository.model.ProductModel
+import by.lifetech.test.repository.model.ProductsModel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.map
 
 /**
@@ -29,9 +28,9 @@ class GetTestInteractor(
 
 class GetTestMapper {
 
-    fun mapModels(list: List<EntityModel>): List<SimpleEntity> {
+    fun mapModels(productsModel: ProductsModel?): List<SimpleEntity> {
         val mapList = ArrayList<SimpleEntity>()
-        list.forEach {
+        productsModel?.products?.forEach {
             mapList.add(
                 SimpleEntity(
                     id = it.id,
